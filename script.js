@@ -81,6 +81,8 @@ var specialchar = [
   '_',
   '.'
 ];
+
+//Function to get user input
 function passwordPrompt() {
   //Variable to store the link of the password
 
@@ -116,6 +118,14 @@ function passwordPrompt() {
   }
   return passwordChar
 }
+
+//Gets random element from array that passes through it
+function randomizer(array){
+  var index = Math.floor(Math.random() * array.length);
+  var randEl = array[index]
+  return randEl
+}
+
 var generateBtn = document.querySelector("#generate");
 
 
