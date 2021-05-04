@@ -86,14 +86,38 @@ function passwordPrompt() {
 
   var length = parseInt(prompt("How many characters would you like the password to be?"));
 
-   if (length <8 || length >128){
-     alert("Password has to be between 8 and 128 characters");
-     return;
-   }
+  if (length < 8 || length > 128) {
+    alert("Password has to be between 8 and 128 characters");
+    return;
+  }
 
+  var checkLowercase = confirm("Do you want lowercase characters? If so, click okay");
+  var checkUppercase = confirm("Do you want uppercase characters? If so, click okay");
+  var checkNumerics = confirm("Do you want numeric characters? If so, click okay");
+  var checkSpecialchar = confirm("Do you want special characters? If so, click okay");
 
+  if (
+    checkLowercase === false &&
+    checkUppercase === false &&
+    checkNumerics === false &&
+    checkSpecialchar === false
+  ) {
+    alert("Password must include at least one character type");
+    return;
+  }
+
+  //Store all the variables in an object
+  var passwordChar = {
+    length: length,
+    lower: checkLowercase,
+    upper: checkUppercase,
+    num: checkNumerics,
+    spec: checkSpecialchar,
+  }
+  return passwordChar
 }
 var generateBtn = document.querySelector("#generate");
+
 
 // Write password to the #password input
 function writePassword() {
