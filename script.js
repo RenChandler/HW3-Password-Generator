@@ -169,7 +169,7 @@ function generatePassword(){
 
   for (var i){
     pwResult[i]= charChoice
-    return pwResult('')
+    return pwResult.join(' ')
   }
 }
 
