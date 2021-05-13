@@ -126,6 +126,53 @@ function randomizer(array){
   return randEl
 }
 
+
+function generatePassword(){
+  //Variable to get user input from password prompt function
+  var pwInput = passwordPrompt()
+  //Store password
+  var pwResult = []
+  // Store character choices
+  var charChoices =[]
+  // Actual characters used
+  var charChosen = []
+
+
+  // Push random lowercase characters into charChosen array if user chooses lowercase array
+  if (pwInput.lower){
+    charChoices = charChoices.concat(lowercase);
+    charChosen.push(randomizer(lower));
+  }
+
+  // Push random uppercase characters into charChosen array if user chooses uppercase array
+  if (pwInput.upper){
+    charChoices = charChoices.concat(uppercase);
+    charChosen.push(randomizer(upper));
+  }
+
+  // Push random numerical characters into charChosen array if user chooses numeric array
+  if (pwInput.num){
+    charChoices = charChoices.concat(numerics);
+    charChosen.push(randomizer(num));
+  }
+
+  // Push random special characters into charChosen array if user chooses specal array
+  if (pwInput.spec){
+    charChoices = charChoices.concat(specialchar);
+    charChosen.push(randomizer(spec));
+  }
+
+  for (var i=0; i <pwInput.length; i++){
+    var charChoice = randomizer(charChoices)
+    pwResult.push(charChoice)
+  }
+
+  for (var i){
+    pwResult[i]= charChoice
+    return pwResult('')
+  }
+}
+
 var generateBtn = document.querySelector("#generate");
 
 
